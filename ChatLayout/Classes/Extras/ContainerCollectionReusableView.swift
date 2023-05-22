@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 
 /// A container `UICollectionReusableView` that constraints its contained view to its margins.
-public final class ContainerCollectionReusableView<CustomView: UIView>: UICollectionReusableView, ContainerCollectionViewEventTransmitter {
+public final class ContainerCollectionReusableView<CustomView: UIView>: UICollectionReusableView, ContainerCollectionViewCellDelegateHolder {
 
     /// Default reuse identifier is set with the class name.
     public static var reuseIdentifier: String {

@@ -13,8 +13,10 @@
 import Foundation
 import UIKit
 
+public extension ContainerCollectionViewCellDelegateHolder where Self: UICollectionViewCell {}
+
 /// A container `UICollectionViewCell` that constraints its contained view to its margins.
-public final class ContainerCollectionViewCell<CustomView: UIView>: UICollectionViewCell, ContainerCollectionViewEventTransmitter {
+public final class ContainerCollectionViewCell<CustomView: UIView>: UICollectionViewCell, ContainerCollectionViewCellDelegateHolder {
 
     /// Default reuse identifier is set with the class name.
     public static var reuseIdentifier: String {

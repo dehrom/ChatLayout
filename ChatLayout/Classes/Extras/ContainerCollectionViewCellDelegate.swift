@@ -13,6 +13,10 @@
 import Foundation
 import UIKit
 
+public protocol ContainerCollectionViewCellDelegateHolder: AnyObject {
+  var delegate: ContainerCollectionViewCellDelegate? { get }
+}
+
 /// A delegate of `ContainerCollectionViewCell`/`ContainerCollectionReusableView` should implement this methods if
 /// it is required to participate in containers lifecycle.
 public protocol ContainerCollectionViewCellDelegate: AnyObject {

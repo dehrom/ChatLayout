@@ -66,6 +66,16 @@ public final class ContainerCollectionViewCell<CustomView: UIView>: UICollection
         }
         return resultingLayoutAttributes
     }
+  
+    /// Perform any logic before cell displaying.
+    public func willDisplay() {
+      delegate?.willDisplay()
+    }
+
+    /// Perform any logic after cell displaying.
+    public func didEndDisplaying() {
+      delegate?.didEndDisplaying()
+    }
 
     /// Applies the specified layout attributes to the view.
     /// - Parameter layoutAttributes: The layout attributes to apply.

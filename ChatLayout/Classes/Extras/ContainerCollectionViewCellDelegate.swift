@@ -41,6 +41,12 @@ public protocol ContainerCollectionViewCellDelegate: AnyObject {
     /// - Parameter layoutAttributes: `ChatLayoutAttributes` provided by `CollectionViewChatLayout`.
     func apply(_ layoutAttributes: ChatLayoutAttributes)
 
+  
+    /// Perform any logic before cell displaying.
+    func willDisplay()
+  
+    /// Perform any logic after cell displaying.
+    func didEndDisplaying()
 }
 
 /// Default extension to make the methods optional for implementation in the successor
@@ -60,4 +66,9 @@ public extension ContainerCollectionViewCellDelegate {
     /// Default implementation does nothing.
     func apply(_ layoutAttributes: ChatLayoutAttributes) {}
 
+    /// Default implementation does nothing.
+    func willDisplay() {}
+  
+    /// Default implementation does nothing.
+  func didEndDisplaying() {}
 }

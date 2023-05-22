@@ -77,6 +77,16 @@ public final class ContainerCollectionReusableView<CustomView: UIView>: UICollec
         super.apply(layoutAttributes)
         delegate?.apply(chatLayoutAttributes)
     }
+  
+    /// Perform any logic before cell displaying.
+    public func willDisplay() {
+      delegate?.willDisplay()
+    }
+  
+    /// Perform any logic after cell displaying.
+    public func didEndDisplaying() {
+      delegate?.didEndDisplaying()
+    }
 
     private func setupSubviews() {
         addSubview(customView)

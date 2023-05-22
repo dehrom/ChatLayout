@@ -13,7 +13,7 @@
 import Foundation
 import UIKit
 
-public protocol ContainerCollectionViewCellDelegateHolder: AnyObject {
+protocol ContainerCollectionViewCellDelegateHolder: AnyObject {
   var delegate: ContainerCollectionViewCellDelegate? { get }
 }
 
@@ -74,5 +74,5 @@ public extension ContainerCollectionViewCellDelegate {
     func willDisplay() {}
   
     /// Default implementation does nothing.
-  func didEndDisplaying() {}
+    func didEndDisplaying() {}
 }

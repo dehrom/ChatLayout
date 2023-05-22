@@ -13,7 +13,19 @@
 import Foundation
 import UIKit
 
-public extension ContainerCollectionViewCellDelegateHolder where Self: UICollectionViewCell {}
+public extension UICollectionViewCell {
+  /// Perform any logic before cell displaying.
+  func willDisplay() {
+    guard let delegate = (self as? ContainerCollectionViewCellDelegateHolder)?.delegate else { return }
+    delegate.willDisplay()
+  }
+
+  /// Perform any logic after cell displaying.
+  func didEndDisplaying() {
+    guard let delegate = (self as? ContainerCollectionViewCellDelegateHolder)?.delegate else { return }
+    delegate.didEndDisplaying()
+  }
+}
 
 /// A container `UICollectionViewCell` that constraints its contained view to its margins.
 public final class ContainerCollectionViewCell<CustomView: UIView>: UICollectionViewCell, ContainerCollectionViewCellDelegateHolder {
@@ -67,16 +79,6 @@ public final class ContainerCollectionViewCell<CustomView: UIView>: UICollection
             resultingLayoutAttributes = chatLayoutAttributes
         }
         return resultingLayoutAttributes
-    }
-  
-    /// Perform any logic before cell displaying.
-    public func willDisplay() {
-      delegate?.willDisplay()
-    }
-
-    /// Perform any logic after cell displaying.
-    public func didEndDisplaying() {
-      delegate?.didEndDisplaying()
     }
 
     /// Applies the specified layout attributes to the view.
